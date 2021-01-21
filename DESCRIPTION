@@ -1,0 +1,23 @@
+Package: gwasqcplots
+Title: gwasqcplots
+Version: 0.1.0
+Authors@R: 
+    person(given = "Cameron",
+           family = "Palmer",
+           role = c("aut", "cre"),
+           email = "palmer.cam@gmail.com")
+Description: assorted QC plots for GWAS analysis.
+License: use_mit_license()
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+    R.utils,
+    ggplot2,
+    ggthemes,
+    RColorBrewer,
+    data.table
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
