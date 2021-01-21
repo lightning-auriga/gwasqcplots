@@ -1,9 +1,26 @@
+#' Create a qq-plot with simple confidence range
 #'
+#' Given raw data and certain parameters, create aes
+#' qq-plot. Axes are in -log10(p-value) units. A simple
+#' and somewhat misleading 95% confidence range is plotted
+#' around the points, assuming independence of results
+#' (which for GWAS is surely false) and random draws from
+#' the unit interval (which is often false for many
+#' association tools on real datasets). This could be
+#' improved with on-the-fly LD filtering.
 #'
-#'
-#'
-#'
-#'
+#' @param raw.data data.frame containing p-values for plotting
+#' @param pval.col.header character vector name of column in raw.data
+#' containing (untransformed) p-values
+#' @param y.max numeric maximum plot value for observed p-values;
+#' controls certain plot behaviors for pretty printing
+#' @param qq.sim.nsims numeric number of simulated draws for 
+#' 95% confidence range calculation
+#' @param qq.sim.npoints numeric number of random observations tools
+#' draw per simulation; usually this is the same as the number of
+#' actual observations in the plot
+#' @param output.filestem character vector prefix for output
+#' filename, will have ".qq.jpg" appended
 render.qq.plot <- function(raw.data,
                            pval.col.header,
                            y.max,
