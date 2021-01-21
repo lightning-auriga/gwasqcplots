@@ -112,10 +112,10 @@ render.manhattan.plot <- function(raw.data,
   )
   my.plot <- my.plot + my.theme +
     ggplot2::theme(
-      panel.grid = element_blank(),
-      axis.text = element_text(size = 11),
-      axis.line.x = element_blank(),
-      axis.line.y.right = element_blank()
+      panel.grid = ggplot2::element_blank(),
+      axis.text = ggplot2::element_text(size = 11),
+      axis.line.x = ggplot2::element_blank(),
+      axis.line.y.right = ggplot2::element_blank()
     )
   my.plot <- my.plot + ggplot2::geom_point()
   if (!is.na(gws.threshold)) {
