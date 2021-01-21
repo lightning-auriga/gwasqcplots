@@ -1,9 +1,53 @@
+#' Given input data and plot preferences, compute
+#' color for all points and, if needed, locations for
+#' labels of known loci.
 #'
+#' This is a helper function wrapping a bunch of
+#' messy calculations about where to put known loci
+#' labels and how to set point colors. This could be
+#' significantly improved with integration with external
+#' reference LD information, to make the locus coloring
+#' anything other than a messy hack.
 #'
-#'
-#'
-#'
-#'
+#' @param raw.data data.frame data frame containing input
+#' data for Manhattan plot
+#' @param chr.col.header character vector name of chromosome
+#' column header in raw.data
+#' @param pos.col.header character vector name of physical
+#' position column header in raw.data
+#' @param rsid.col.header character vector name of rsid
+#' (or other format of SNP ID) column header in raw.data
+#' @param pval.col.header character vector name of p-value
+#' column header in raw.data
+#' @param snp.color.one character vector name of color for
+#' first of alternating chromosome colors. Seems to look
+#' best as one of two shades of the same color, in this case
+#' grey
+#' @param snp.color.two character vector name of color for
+#' second of alternating chromosome colors. Seems to look
+#' best as one of two shades of the same color, in this case
+#' grey
+#' @param prev.loci.color character vector name of color
+#' with which to highlight variants (and neighbors) from
+#' previously-known locus set
+#' @param novel.loci.color character vector name of color
+#' with which to highlight variants (and neighbors) from
+#' novel locus set
+#' @param filename.prev.hits character vector name of file
+#' containing previously-known loci, or NA
+#' @param filename.novel.hits character vector name of file
+#' containing novel loci, or NA
+#' @param locus.width numeric ad hoc number of variants
+#' physically surrounding known variant to flag with the same
+#' highlight color; this should eventually be deprecated in
+#' favor of LD-based determination 
+#' @return list with the following entries: snp.labels,
+#' a character vector with labels to overlay on the plot denoting
+#' specified loci; snp.label.x.positions, numeric vector
+#' containing x-axis positions for overlay labels; snp.label.y.positions,
+#' numeric vector containing y-axis positions for overlay labels;
+#' all.colors, character vector containing the color assignment
+#' for each point in the desired Manhattan plot
 compute.manhattan.settings <- function(raw.data,
                                        chr.col.header,
                                        pos.col.header,
