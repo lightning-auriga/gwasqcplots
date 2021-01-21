@@ -2,8 +2,8 @@
 #'
 #' A simple utility definition of some straightforward
 #' plot settings. Nothing too interesting
-my.theme <- theme_light() + theme(
-  plot.title = element_text(size = 18, hjust = 0.5),
-  axis.title = element_text(size = 16),
-  axis.text = element_text(size = 14)
+my.theme <- ggplot2::theme_light() + ggplot2::theme(
+  plot.title = ggplot2::element_text(size = 18, hjust = 0.5),
+  axis.title = ggplot2::element_text(size = 16),
+  axis.text = ggplot2::element_text(size = 14)
 )
