@@ -102,7 +102,7 @@ render.qq.plot <- function(raw.data,
     ggplot2::ylab(expression("-log"[10] * "(Observed P)"))
 
   options(bitmapType = "cairo", device = "jpeg")
-  ggsave(paste(output.filestem, ".qq.jpg", sep = ""),
+  ggplot2::ggsave(paste(output.filestem, ".qq.jpg", sep = ""),
     plot = my.plot,
     height = 10,
     width = 16 / 9 * 10,

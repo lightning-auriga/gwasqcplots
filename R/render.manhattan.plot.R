@@ -186,7 +186,7 @@ render.manhattan.plot <- function(raw.data,
     )
   }
   options(bitmapType = "cairo", device = "jpeg")
-  ggsave(paste(output.filestem, ".manhattan.jpg", sep = ""),
+  ggplot2::ggsave(paste(output.filestem, ".manhattan.jpg", sep = ""),
     plot = my.plot, height = 10, width = 16 / 9 * 10, units = "in"
     )
 }
