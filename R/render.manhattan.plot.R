@@ -179,7 +179,7 @@ render.manhattan.plot <- function(raw.data,
     )
   }
   if (write.locus.labels) {
-    annotate("text",
+    ggplot2::annotate("text",
       snp.label.x.positions,
       snp.label.y.positions,
       label = snp.labels
